@@ -42,14 +42,15 @@ public class Clientes {
 			joinColumns = {@JoinColumn(name="cliente_fk")},
 			inverseJoinColumns = {@JoinColumn(name="destino_fk")}
 				)
-		private List<Destinos> destinos;
+	private List<Destinos> destinos;
 
-		@ManyToOne
-		@JoinColumn(name = "voo_id")
-		private Voo voo;
+	@ManyToOne
+	@JoinColumn(name = "voo_id")
+	private Voo voo;
 
 	
 	
+
 	public Clientes() {
 		super();
 	}
@@ -101,6 +102,13 @@ public class Clientes {
 
 	public void setDataVolta(Date dataVolta) {
 		this.dataVolta = dataVolta;
+	}
+	public Voo getVoo() {
+		return voo;
+	}
+
+	public void setVoo(Voo voo) {
+		this.voo = voo;
 	}
 
 }
