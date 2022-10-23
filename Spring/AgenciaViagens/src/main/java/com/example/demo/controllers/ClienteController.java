@@ -33,13 +33,13 @@ public class ClienteController {
 	private VooRepository vooRepository;
 	
 	//GET ALL
-	@GetMapping("/Clientes")
+	@GetMapping("/clientes")
 	public List<Clientes> getTodosCliente(){
 		return clienteRepository.findAll();
 	}
 	
 	//GET
-	@GetMapping("/Cliente/{id}")
+	@GetMapping("/cliente/{id}")
 	public ResponseEntity<Clientes> getClienteById(@PathVariable Long id){
 														//callback
 		Clientes cliente = clienteRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Clientes inexistente"));

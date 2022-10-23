@@ -43,6 +43,9 @@ public class Destinos {
 	@JoinColumn(name = "promocao_id")
 	private Promocao promocao;
 
+	
+	
+	
 	public Destinos() {
 		super();
 	}
@@ -85,6 +88,14 @@ public class Destinos {
 
 	public void setObraR(String obraR) {
 		this.obraR = obraR;
+	}
+
+	public Promocao getPromocao() {
+		return promocao;
+	}
+
+	public void setPromocao(Promocao promocao) {
+		this.promocao = promocao;
 	}
 
 
