@@ -1,11 +1,16 @@
 package com.example.demo.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "voo")
@@ -17,9 +22,12 @@ public class Voo {
 	@Column(name = "companhia_aerea")
 	private String CompanhiaA;
 	
-	@Column(name = "preco")
+	@Column(name = "preco", columnDefinition="Decimal(10,2)")
 	private Double preco;
 
+	@JsonIgnore
+	@OneToMany(mappedBy = "voo")
+	private List<Clientes> clientes;
 
 	
 	public Voo() {

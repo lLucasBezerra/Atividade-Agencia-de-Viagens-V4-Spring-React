@@ -1,11 +1,19 @@
 package com.example.demo.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "destinos")
@@ -25,7 +33,15 @@ public class Destinos {
 	private String obraR;
 	
 	
+	@JsonIgnore
+	@ManyToMany(cascade = {
+			CascadeType.ALL
+	}, mappedBy = "destinos")
+	private List<Clientes> clientes;
 	
+	@ManyToOne
+	@JoinColumn(name = "promocao_id")
+	private Promocao promocao;
 
 	public Destinos() {
 		super();

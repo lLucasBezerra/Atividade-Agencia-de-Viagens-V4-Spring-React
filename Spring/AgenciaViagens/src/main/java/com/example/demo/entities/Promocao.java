@@ -1,11 +1,16 @@
 package com.example.demo.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "promocoes")
@@ -19,9 +24,11 @@ public class Promocao {
 	private String nomePromo;
 	
 	@Column(name = "desconto")
-	private Long desconto;
+	private Integer desconto;
 
-	
+	@JsonIgnore
+	@OneToMany(mappedBy = "promocao")
+	private List<Destinos> destinosEmPromo;
 	
 	
 	
@@ -29,7 +36,7 @@ public class Promocao {
 		super();
 	}
 
-	public Promocao(Long id, String nomePromo, Long desconto) {
+	public Promocao(Long id, String nomePromo, Integer desconto) {
 		super();
 		this.id = id;
 		this.nomePromo = nomePromo;
@@ -52,11 +59,11 @@ public class Promocao {
 		this.nomePromo = nomePromo;
 	}
 
-	public Long getDesconto() {
+	public Integer getDesconto() {
 		return desconto;
 	}
 
-	public void setDesconto(Long desconto) {
+	public void setDesconto(Integer desconto) {
 		this.desconto = desconto;
 	}
 }
