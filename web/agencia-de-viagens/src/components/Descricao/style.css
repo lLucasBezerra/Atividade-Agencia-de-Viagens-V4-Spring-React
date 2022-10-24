@@ -29,6 +29,13 @@ strong{
     margin: 15px;
     transition: 0.5s;
 }
+@media(max-width: 850px){
+ .col-text{
+    width: 100%;
+    margin-left:0px ;
+    margin-right: 0px;
+ }
+}
 .col-text:hover{
     border: 5px solid var(--cor-s);
     padding: 2px;
@@ -41,5 +48,5 @@ strong{
     margin: 0px;
 }
 .section-apresentacao{
-    height: 80vh;
+    /* height: 80vh; */
 }

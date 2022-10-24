@@ -121,3 +121,9 @@
 .card-titulo:hover{
     color: rgb(77, 77, 241);
 }
+.desconto{
+    font-size: 12px;
+    text-decoration: line-through;
+    color: red;
+    margin-bottom: 0;
+}
