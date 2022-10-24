@@ -1,5 +1,11 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
+import HomePage from "./pages/Home"
+import Destinos from "./pages/Destinos"
+import Promocao from "./pages/Promocao"
+import Contato from "./pages/Contato"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css'
 
 function App() {
@@ -7,7 +13,17 @@ function App() {
 
   return (
     <div className="App">
-    
+      <Router>
+        <Navbar/>
+        <Routes>
+          <Route exact path="/" element={<HomePage/>}/>
+          <Route exact path="/destinos" element={<Destinos/>}/>
+          <Route exact path="/nossocontato" element={<Contato/>}/>
+          <Route exact path="/promocao" element={<Promocao/>}/>
+
+        </Routes>
+        <Footer/>
+    </Router>
     </div>
   )
 }
