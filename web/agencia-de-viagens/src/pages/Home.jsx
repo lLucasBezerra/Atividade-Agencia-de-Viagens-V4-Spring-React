@@ -1,10 +1,10 @@
 import React from 'react'
+import Descricao from "../components/Descricao"
 import "./homeCSS.css"
-import CarrosselI from "../assets/img-carrossel/img-1-carrossel.jpg";
-import CarroselII from "../assets/img-carrossel/img-2-carrossel.jpg";
-import CarrosselIII from "../assets/img-carrossel/img-3-carrossel1.jpg";
-import iconCetificado from "../assets/certificate-svgrepo-com.svg";
+import Carrossel from "../components/Carrossel"
 import Londres from "../assets/img-cards/londres.png";
+
+
 export default function Home() {
   return (
     <>
@@ -22,56 +22,7 @@ export default function Home() {
             <h3 className="titulo linha">Venha Viajar conosco!</h3>
             <p>experimente visitar os lugares onde seu filme foi gravado!</p>
 
-            <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
-              <div className="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active"
-                  aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                  aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                  aria-label="Slide 3"></button>
-              </div>
-
-              {/* <!-- imagens do carrossel --> */}
-              {/* <!-- imagem 1 --> */}
-              <div className="carousel-inner">
-                <div className="carousel-item active">
-                  <img className="img-carrossel d-block" src={CarrosselI} alt="..." />
-                  <div className="carousel-caption d-none d-md-block">
-                    <h5>Resolva vivenciar suas obras favoritas</h5>
-                    <p>Visitando os locais que elas foram <strong>inspiradas</strong></p>
-                  </div>
-                </div>
-
-                {/* <!-- imagem 2 --> */}
-                <div className="carousel-item">
-                  <img className="img-carrossel d-block" src={CarroselII} alt="..." />
-                  <div className="carousel-caption d-none d-md-block">
-                    <h5>Com <strong>preço acessível</strong></h5>
-                    <p><strong>Chame sua familia</strong> para realizar esse sonho com você!</p>
-                  </div>
-                </div>
-
-                {/* <!-- imagem 3 --> */}
-                <div className="carousel-item">
-                  <img className="img-carrossel d-block" src={CarrosselIII} alt="..." />
-                  <div className="carousel-caption d-none d-md-block">
-                    <h5>E com uma Experiencia <strong>única</strong></h5>
-                    <p>Nós mesmos planejamos uma rotina de viagem perfeita!</p>
-                  </div>
-                </div>
-              </div>
-              <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Previous</span>
-              </button>
-              <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Next</span>
-              </button>
-            </div>
+            <Carrossel/>
 
 
             {/* <!-- iniciando formulario -------------------> */}
@@ -120,54 +71,13 @@ export default function Home() {
       </main>
     </section>
 
+    {/* Apresentação do site */}
+    <Descricao/>
 
-    <section className="container section-apresentacao">
-      {/* <!-- explicação da agencia --------------> */}
+  
 
-      <div className="container explicacao">
-
-        {/* <!-- Titulo Principal --> */}
-        <h1 className="titulo">Nos conheça!</h1>
-
-        <div className="row">
-          <div className="col-sm col-text">
-            
-            {/* <!-- Titulo Secundario --> */}
-            <h3 className="titulo">Nosso objetivo</h3>
-            <p className="lorem">
-              nosssa agência foi criada com o intúito de realizar os sonhos dos nossos clientes: <br/> <br/>
-              <strong>Descobrir e Visitar o locais em que seu filme e ou obra foi inspirado ou gravada!</strong>
-            </p>
-          </div>
-          <div className="col-sm col-text">
-            
-            {/* <!-- Titulo Secundario --> */}
-            <h3 className="titulo">Benefícios</h3>
-            <p className="lorem">
-              Lorem ipsum, dolor sit amet <strong>consectetur adipisicing elit.</strong> Fugit facilis in commodi, aut
-              repellat omnis aliquam aliquid iste reiciendis minima a nesciunt nemo nihil consectetur vero possimus
-              blanditiis dolores ex.
-            </p>
-            <div className="svg">
-              <img src={iconCetificado} alt="" width="100px"/>
-            </div>
-          </div>
-          <div className="col-sm col-text">
-            
-            {/* <!-- Titulo Secundario --> */}
-            <h3 className="titulo">Seguros</h3>
-            <p className="lorem">
-              Lorem ipsum, dolor sit amet <strong>numquam eveniet reprehenderit voluptate voluptates vel, quisquam laborum porro!</strong> Fugit facilis in commodi, aut repellat omnis aliquam aliquid iste reiciendis minima a nesciunt nemo <strong>consectetur adipisicing elit.</strong> nihil consectetur vero possimus
-              blanditiis dolores ex.
-            </p>
-          </div>
-        </div>
-      </div>
-
-
-	</section>
         {/* <!-- NOVIDADES --> */}
-        <section className="container-fluid novidades">
+      <section className="container-fluid novidades">
         <div>
           <div className="row texto-novidades">
             <div className="col-lg">
