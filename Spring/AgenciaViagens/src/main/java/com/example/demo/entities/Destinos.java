@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -32,16 +33,20 @@ public class Destinos {
 	@Column(name = "obra_relacionada")
 	private String obraR;
 	
-	
+	/*
 	@JsonIgnore
 	@ManyToMany(cascade = {
 			CascadeType.ALL
 	}, mappedBy = "destinos")
 	private List<Clientes> clientes;
-	
+	*/
 	@ManyToOne
 	@JoinColumn(name = "promocao_id")
 	private Promocao promocao;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "destino")
+	private List<Clientes> clientes;
 
 	
 	

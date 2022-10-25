@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.ResourceNotFoundException;
 import com.example.demo.entities.Clientes;
+import com.example.demo.entities.Destinos;
 import com.example.demo.entities.Voo;
 import com.example.demo.repositories.ClienteRepository;
+import com.example.demo.repositories.DestinosRepository;
 import com.example.demo.repositories.VooRepository;
 
 @CrossOrigin(origins = "*")
@@ -31,6 +33,9 @@ public class ClienteController {
 	private ClienteRepository clienteRepository;
 	@Autowired
 	private VooRepository vooRepository;
+	
+	@Autowired
+	private DestinosRepository destinoRepository;
 	
 	//GET ALL
 	@GetMapping("/clientes")
@@ -57,12 +62,14 @@ public class ClienteController {
 	public ResponseEntity<Clientes> updateCliente(@PathVariable Long id, @RequestBody Clientes cliDetails){
 		Clientes cliente = clienteRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Cliente inexistente"));
 		Voo voo = vooRepository.findById(cliDetails.getVoo().getId()).get();
+		Destinos destino = destinoRepository.findById(cliDetails.getDestino().getId()).get();
 		
 		cliente.setCpf(cliDetails.getCpf());
 		cliente.setDataIda(cliDetails.getDataIda());
 		cliente.setDataVolta(cliDetails.getDataVolta());
 		cliente.setOrigem(cliDetails.getOrigem());
 		cliente.setVoo(voo);
+		cliente.setDestino(destino);
 		Clientes newCliente = clienteRepository.save(cliente);
 		
 		return ResponseEntity.ok(newCliente);

@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
+
 import Descricao from "../components/Descricao"
 import "./homeCSS.css"
 import Carrossel from "../components/Carrossel"
@@ -27,7 +29,6 @@ export default function Home() {
 
             {/* <!-- iniciando formulario -------------------> */}
             <div>
-              <form name="frmCadastro" className="cadastro-rapido" action="Cadastrando" method="POST">
                 
                 {/* <!-- titulo --> */}
                 <h3 className="titulo linha">Cadastre seu destino!</h3>
@@ -35,35 +36,10 @@ export default function Home() {
                 <div className="div-form">
 
 
- 					{/* <!-- CPF --> */}
-                  <div className="input cad-rap-input">
-                  					{/* <!-- com  -> "required" <-  não ha necessidade de criar um arquivo js so para validar --> */}
-                    <input name="cpf" type="text" placeholder="CPF" required />
-                    <small id="emailHelpId" className="form-text text-muted small-texto">CPF</small>
-                  </div>
-                  
-                  {/* <!-- Origem --> */}
-                  <div className="input cad-rap-input">
-                    <input name="origem" type="text" placeholder="Origem" required />
-                    <small id="emailHelpId" className="form-text text-muted small-texto">Origem</small>
-                  </div>
-
-                  {/* <!-- Data da ida --> */}
-                  <div className="input cad-rap-input">
-                    <input name="dataIda" type="date" required />
-                    <small id="emailHelpId" className="form-text text-muted small-texto">Data de Ida</small>
-                  </div>
-
-                  {/* <!-- Data da volta --> */}
-                  <div className="input cad-rap-input">
-                    <input name="dataVolta" type="date" required />
-                    <small id="emailHelpId" className="form-text text-muted small-texto">Data de Volta</small>
-                  </div>
 
                   {/* <!-- Botão --> */}
-                  <input type="submit" value="Vamos la!" />
+                  <Link className="link-cad" to={"/cadastrando"}>Vamos lá</Link>
                 </div>
-              </form>
             </div>
           </div>
         </div>

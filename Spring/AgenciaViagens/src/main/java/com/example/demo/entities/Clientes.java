@@ -35,15 +35,22 @@ public class Clientes {
 	@Column(name = "dataVolta")
 	private Date dataVolta;
 	
-	@ManyToMany(cascade = {
+	/*NÃO SEI COMO FAZER COM Q ELE FAÇA SOZINHO A RELAÇÃO DA TABELA DE ASSOCIAÇÃO
+	 * ENTAO MUDAREI PARA MANY TO ONE PARA PODER FAZER
+	 * @ManyToMany(cascade = {
 			CascadeType.ALL
 		})
 		@JoinTable(name = "escolher_destino",
-			joinColumns = {@JoinColumn(name="cliente_fk")},
-			inverseJoinColumns = {@JoinColumn(name="destino_fk")}
+			joinColumns = {@JoinColumn(name="cliente_fk", referencedColumnName = "id")},
+			inverseJoinColumns = {@JoinColumn(name="destino_fk", referencedColumnName = "id")}
 				)
-	private List<Destinos> destinos;
-
+	private List<Destinos> destinos;*/
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "destino_id")
+	private Destinos destino;
+	
 	@ManyToOne
 	@JoinColumn(name = "voo_id")
 	private Voo voo;
@@ -110,5 +117,21 @@ public class Clientes {
 	public void setVoo(Voo voo) {
 		this.voo = voo;
 	}
+
+	public Destinos getDestino() {
+		return destino;
+	}
+
+	public void setDestino(Destinos destino) {
+		this.destino = destino;
+	}
+
+	/*public List<Destinos> getDestinos() {
+		return destinos;
+	}
+
+	public void setDestinos(List<Destinos> destinos) {
+		this.destinos = destinos;
+	}*/
 
 }

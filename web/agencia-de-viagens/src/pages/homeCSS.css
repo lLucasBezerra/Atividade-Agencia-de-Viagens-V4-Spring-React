@@ -75,15 +75,21 @@
     background-color: var(--cor-p);
     transition: 0.3s;
 }
-.cadastro-rapido input[type="submit"]{
+.link-cad{
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    background-color: var(--cor-p);
     margin-left: 8px;
     border: none;
     font-family: var(--font-principal);
     border-radius: 8px;
-    padding: 4px;
+    padding: 15px;
+    
 }
-.cadastro-rapido input[type="submit"]:hover{
+.link-cad:hover{
     background-color: var(--cor-t);
+    color: black;
     transition: 0.3s;
 }
 .small-texto{
